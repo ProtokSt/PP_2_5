@@ -2,13 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>Cars</title>
     <style>
         .oform {
             color: blue;
             text-decoration: none;
             font-weight: bold;
         }
+
         .oform:hover {
             color: red;
         }
@@ -20,6 +21,19 @@
         <h1 th:text="${msg}"></h1>
     </th:block>
 </div>
-<a class="oform" href="/cars">Cars / Машины</a>
+<table>
+    <tr>
+        <th>Model</th>
+        <th>Series</th>
+        <th>Licence</th>
+    </tr>
+    <tr>
+    <tr th:each="car : ${cars}">
+        <td th:utext="${car.getModel()}"></td>
+        <td th:utext="${car.getSeries()}"></td>
+        <td th:utext="${car.getLicence()}"></td>
+    </tr>
+</table>
+<a class="oform" href="/">Home / На Главную</a>
 </body>
 </html>
